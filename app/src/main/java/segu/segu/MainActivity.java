@@ -24,6 +24,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -56,7 +58,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @BindView(R.id.credit_int)
     TextView credit;
 
-    double tx = 0.12;
+    double tx = 0.0012;
+
+    ArrayList<Dado> dados = new ArrayList<>();
     double ttl = 100.0;
 
     @Override
@@ -72,11 +76,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
             locationManager.requestLocationUpdates(provider, 500, 1, this);
             actualLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            velocity.setText(String.format("R$%.2f/s",tx));
+            velocity.setText(String.format("R$%.2f/h",tx * 60));
         }else{
             checkLocationPermission();
         }
 
+        dados = new IAReaderStream().read(this);
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
@@ -152,6 +157,17 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         }
     }
 
+    double getTx(){
+        for (Dado dado:dados){
+            if (dado.isNear(actualLocation)){
+                if(dado.isBetweenTime(new Date())){
+                    return dado.tarifa;
+                }
+            }
+        }
+        return tx;
+    }
+
     @Override
     public void onProviderDisabled(String provider) {
         Log.d("Latitude","disable");
@@ -165,8 +181,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(Location location) {
         actualLocation = location;
-        tx = actualLocation.getSpeed()*3.6/100;
-        velocity.setText(String.format("R$ %.2f/s",tx));
+        tx = 10*3.6/100;
+        velocity.setText(String.format("R$ %.4f/min",getTx()));
         hideLoading();
     }
 
@@ -222,7 +238,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        total.setText(String.format("R$ %.2f ",count*tx));
+                        total.setText(String.format("R$ %.4f ",count*getTx()/60));
                         total.setVisibility(View.VISIBLE);
                     }
                 });
@@ -233,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public void stopTime(){
         T.cancel();
         T= new Timer();
-        ttl -= count*tx;
+        ttl -= count*getTx()/60;
         count = 0;
         credit.setText(String.format("Creditos: R$ %.2f ",ttl));
     }

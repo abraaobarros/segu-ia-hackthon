@@ -28,15 +28,18 @@
 
 
         <TextView
+            android:id="@+id/total_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:layout_centerHorizontal="true"
-            android:text="Taxa de seguro:" />
+            android:visibility="invisible"
+            android:text="Creditos gastos:" />
 
         <TextView
-            android:id="@+id/taxes"
+            android:id="@+id/total"
             android:layout_width="wrap_content"
+            android:visibility="invisible"
             android:layout_height="wrap_content"
             android:layout_below="@+id/logo"
             android:textSize="16sp"
@@ -162,25 +165,22 @@ um carro."/>
 
     </LinearLayout>
     <TextView
-        android:id="@+id/total_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/total"
+        android:layout_above="@+id/taxes"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible"
-        android:text="Total gasto"
+        android:text="Taxa de seguro agora:"
         android:textColor="#fff"
         android:textSize="16sp" />
         <TextView
-            android:id="@+id/total"
+            android:id="@+id/taxes"
             android:layout_width="wrap_content"
             android:padding="10dp"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
             android:layout_alignBottom="@+id/taxes_container"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="22dp"
-            android:text="R$ 0,00"
+            android:text="R$ 0,00/min"
             android:textColor="#fff"
             android:textSize="45sp" />
 
@@ -191,10 +191,10 @@ um carro."/>
         android:layout_height="wrap_content"
         android:visibility="invisible"
         android:scaleX="0.4"
-        android:layout_alignEnd="@id/total"
+        android:layout_alignEnd="@id/taxes"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="-28dp"
-        android:layout_alignTop="@id/total"
+        android:layout_alignTop="@id/taxes"
         android:scaleY="0.4"/>
 
 </RelativeLayout>
