@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context="segu.segu.CreateCarActivity">
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Comprar crédito"
+        android:titleTextColor="#fff"
+        android:background="#2db0fe"
+        tools:targetApi="lollipop"></Toolbar>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:text="Parabéns, você ganhou"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:text=" R$ 20,00"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:textSize="22sp"
+        android:text="de crédito"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="12sp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="Convide seus amigos e ganhe R$ 20,00 por cada cadastro"/>
+
+    <Button
+        android:id="@+id/create_car_button"
+        android:layout_width="200dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/taxes_container"
+        android:layout_centerHorizontal="true"
+        android:background="#2db0fe"
+        android:textSize="14sp"
+        android:layout_marginBottom="14dp"
+        android:textColor="#fff"
+        android:padding="12dp"
+        android:text="Convidar amigos"/>
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="200dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/taxes_container"
+        android:layout_centerHorizontal="true"
+        android:background="#dbdbdb"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"
+        android:textColor="#000"
+        android:padding="12dp"
+        android:text="Depois"/>
+
+
+</LinearLayout>

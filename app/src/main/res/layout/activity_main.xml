@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2db0fe"
+    tools:context="segu.segu.MainActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="70dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/activate"
+        android:id="@+id/taxes_container"
+        android:layout_marginTop="70dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_centerHorizontal="true"
+            android:text="Taxa de seguro:" />
+
+        <TextView
+            android:id="@+id/taxes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"
+            android:layout_centerHorizontal="true"
+            android:text="R$ 1.00/min" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activate"
+        android:layout_width="200dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/car_description"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:background="#226a95"
+        android:textSize="16sp"
+        android:layout_marginBottom="24dp"
+        android:textColor="#fff"
+        android:padding="12dp"
+        android:text="Ativar Seguro"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:id="@+id/slogan_container"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="9dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/car_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:background="#fff">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:src="@drawable/car"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:text="Placa: HVH-3001"/>
+
+        <TextView
+            android:id="@+id/credit_int"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/activate"
+            android:layout_alignParentBottom="true"
+            android:paddingBottom="40dp"
+            android:text="Creditos: R$ 100,00"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/create_car"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#fff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:text="A Segu é um seguro com se adaptar ao seu uso. Comece o seguro agora adicionando
+um carro."/>
+
+        <Button
+        android:id="@+id/create_car_button"
+        android:layout_width="200dp"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/taxes_container"
+        android:layout_centerHorizontal="true"
+        android:background="#dbdbdb"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"
+        android:textColor="#000"
+        android:padding="12dp"
+        android:text="Cadastrar carro"/>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/create_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:gravity=""
+        android:text="Seguro sob demanda"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/total_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/total"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:text="Total gasto"
+        android:textColor="#fff"
+        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:layout_alignBottom="@+id/taxes_container"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="22dp"
+            android:text="R$ 0,00"
+            android:textColor="#fff"
+            android:textSize="45sp" />
+
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:scaleX="0.4"
+        android:layout_alignEnd="@id/total"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="-28dp"
+        android:layout_alignTop="@id/total"
+        android:scaleY="0.4"/>
+
+</RelativeLayout>
